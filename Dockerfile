@@ -53,5 +53,6 @@ ENV JMETER_PATH="/jmeter/apache-jmeter-${JMETER_VERSION}/bin/entrypoint.sh"
 ENV JMETER_FULL_SCRIPT_PATH="/home/jmeteruser/${JMETER_SCRIPT}"
 
 # ENTRYPOINT /bin/bash
+# ENTRYPOINT $JMETER_PATH -n -t $JMETER_FULL_SCRIPT_PATH
 
-ENTRYPOINT $JMETER_PATH -n -t $JMETER_FULL_SCRIPT_PATH
+CMD ["/bin/bash"]
