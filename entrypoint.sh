@@ -12,11 +12,14 @@ echo "Pulling $JMETER_CSV_DATA_SCRIPT_S3_LOCATION"
 /usr/local/bin/aws s3 cp $JMETER_CSV_DATA_SCRIPT_S3_LOCATION /home/jmeteruser/
 JMETER_CSV_DATA=$(basename "$JMETER_CSV_DATA_SCRIPT_S3_LOCATION")
 
+# Find sed
+SED=`which sed`
+
 # Update the script data for the host
-/usr/bin/sed -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_SCRIPT
+$SED -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_SCRIPT
 
 # Update the script data for the CSV file
-/usr/bin/sed -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_SCRIPT
+$SED -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_SCRIPT
 
 freeMem=`awk '/MemFree/ { print int($2/1024) }' /proc/meminfo`
 s=$(($freeMem/10*8))
