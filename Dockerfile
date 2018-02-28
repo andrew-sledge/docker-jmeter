@@ -9,8 +9,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qy python-pip groff-base less
 RUN pip install --upgrade pip
 RUN pip install awscli
-
-RUN timedatectl set-timezone America/New_York
+RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
 
 RUN mkdir -p /tmp/jmeter \
    && cd /tmp/jmeter \
