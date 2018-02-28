@@ -10,6 +10,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qy python-pip groff-base les
 RUN pip install --upgrade pip
 RUN pip install awscli
 
+RUN timedatectl set-timezone America/New_York
+
 RUN mkdir -p /tmp/jmeter \
    && cd /tmp/jmeter \
    && wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz \
@@ -39,5 +41,4 @@ ENV JMETER_HTTP_HOST www.myhost.com
 ENV PATH $PATH:/jmeter/apache-jmeter-${JMETER_VERSION}/bin:/home/jmeteruser
 ENV JMETER_ENTRYPOINT_PATH /jmeter/apache-jmeter-${JMETER_VERSION}/bin/entrypoint.sh
 
-# ENTRYPOINT /bin/bash
 CMD ["/bin/bash"]

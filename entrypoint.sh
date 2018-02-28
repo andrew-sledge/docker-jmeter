@@ -32,7 +32,8 @@ export JVM_ARGS="-Xmn${n}m -Xms${s}m -Xmx${x}m"
 REPORT_FILE=/home/jmeteruser/$JMETER_RUN_ID.report.txt
 touch $REPORT_FILE
 
-echo "$(date)" >> $REPORT_FILE
+START_TIME=`date +%Y-%m-%dT%H:%M:%S-04:00`
+echo "$START_TIME" >> $REPORT_FILE
 echo "START Running Jmeter on `date`"
 echo "JVM_ARGS=${JVM_ARGS}"
 echo ""
@@ -44,13 +45,8 @@ echo ""
 echo "Testing host ${JMETER_HTTP_HOST}"
 
 jmeter -n -t /home/jmeteruser/$JMETER_SCRIPT
-echo "$(date)" >> $REPORT_FILE
 
-ls -la
-pwd
-
-echo $PATH
-echo $(pwd)
-
+END_TIME=`date +%Y-%m-%dT%H:%M:%S-04:00`
+echo "$END_TIME" >> $REPORT_FILE
 
 exit 0
