@@ -32,6 +32,11 @@ echo "`date`" >> /home/jmeteruser/$REPORTID.report.txt
 echo "START Running Jmeter on `date`"
 echo "JVM_ARGS=${JVM_ARGS}"
 echo "jmeter args=$@"
+echo ""
+echo "Using JMeter script ${JMETER_SCRIPT}"
+echo "Using JMeter data file ${JMETER_CSV_DATA}"
+echo ""
+echo "Testing host ${JMETER_HTTP_HOST}"
 
 jmeter -n -t /home/jmeteruser/$JMETER_SCRIPT
 echo "`date`" >> /home/jmeteruser/$REPORTID.report.txt
