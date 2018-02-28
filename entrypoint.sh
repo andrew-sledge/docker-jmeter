@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/bash -x
 
-set -e
+# set -e
 
 # This assumes using the Ubuntu derivative of the java:8 Docker image
 echo "Pulling $JMETER_SCRIPT_S3_LOCATION"
