@@ -29,7 +29,7 @@ RUN chown -R jmeteruser:jmeteruser /home/jmeteruser
 COPY entrypoint.sh /jmeter/apache-jmeter-${JMETER_VERSION}/bin/
 RUN chmod -R 0755 /jmeter/apache-jmeter-${JMETER_VERSION}/bin
 
-# USER jmeteruser
+USER jmeteruser
 VOLUME /home/jmeteruser
 WORKDIR /home/jmeteruser
 

@@ -47,5 +47,10 @@ jmeter -n -t /home/jmeteruser/$JMETER_SCRIPT
 echo "$(date)" >> $REPORT_FILE
 
 ls -la
+pwd
+
+echo $PATH
+echo $(pwd)
+
 
 exit 0
