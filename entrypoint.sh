@@ -27,7 +27,10 @@ x=$(($freeMem/10*8))
 n=$(($freeMem/10*2))
 export JVM_ARGS="-Xmn${n}m -Xms${s}m -Xmx${x}m"
 
-echo "`date`" >> /home/jmeteruser/$JMETER_RUN_ID.report.txt
+REPORT_FILE=/home/jmeteruser/$JMETER_RUN_ID.report.txt
+touch $REPORT_FILE
+
+echo "$(date)" >> $REPORT_FILE
 echo "START Running Jmeter on `date`"
 echo "JVM_ARGS=${JVM_ARGS}"
 echo ""
@@ -39,4 +42,4 @@ echo ""
 echo "Testing host ${JMETER_HTTP_HOST}"
 
 jmeter -n -t /home/jmeteruser/$JMETER_SCRIPT
-echo "`date`" >> /home/jmeteruser/$JMETER_RUN_ID.report.txt
+echo "$(date)" >> $REPORT_FILE
