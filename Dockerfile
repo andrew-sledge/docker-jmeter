@@ -25,7 +25,6 @@ RUN useradd -r -g jmeteruser -G audio,video jmeteruser
 RUN mkdir -p /home/jmeteruser
 RUN chown -R jmeteruser:jmeteruser /home/jmeteruser
 
-
 # Copy the runner scripts and any supporting files to the container
 COPY entrypoint.sh /jmeter/apache-jmeter-${JMETER_VERSION}/bin/
 RUN chmod -R 0755 /jmeter/apache-jmeter-${JMETER_VERSION}/bin
