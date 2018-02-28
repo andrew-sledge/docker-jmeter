@@ -2,6 +2,8 @@
 
 # set -e
 
+cd /home/jmeteruser
+
 # This assumes using the Ubuntu derivative of the java:8 Docker image
 echo "Pulling $JMETER_SCRIPT_S3_LOCATION"
 /usr/local/bin/aws s3 cp $JMETER_SCRIPT_S3_LOCATION /home/jmeteruser/
@@ -43,5 +45,7 @@ echo "Testing host ${JMETER_HTTP_HOST}"
 
 jmeter -n -t /home/jmeteruser/$JMETER_SCRIPT
 echo "$(date)" >> $REPORT_FILE
+
+ls -la
 
 exit 0
