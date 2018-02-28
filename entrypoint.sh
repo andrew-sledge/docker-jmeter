@@ -30,10 +30,11 @@ export JVM_ARGS="-Xmn${n}m -Xms${s}m -Xmx${x}m"
 echo "`date`" >> /home/jmeteruser/$JMETER_RUN_ID.report.txt
 echo "START Running Jmeter on `date`"
 echo "JVM_ARGS=${JVM_ARGS}"
-echo "jmeter args=$@"
 echo ""
 echo "Using JMeter script ${JMETER_SCRIPT}"
 echo "Using JMeter data file ${JMETER_CSV_DATA}"
+echo ""
+echo "Times logged in report /home/jmeteruser/$JMETER_RUN_ID.report.txt"
 echo ""
 echo "Testing host ${JMETER_HTTP_HOST}"
 
