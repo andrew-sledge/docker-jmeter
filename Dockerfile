@@ -39,5 +39,5 @@ ENV JMETER_HTTP_HOST www.myhost.com
 ENV PATH $PATH:/jmeter/apache-jmeter-${JMETER_VERSION}/bin:/home/jmeteruser
 ENV JMETER_ENTRYPOINT_PATH /jmeter/apache-jmeter-${JMETER_VERSION}/bin/entrypoint.sh
 
-ENTRYPOINT /bin/bash
-# CMD ["/bin/bash"]
+# ENTRYPOINT /bin/bash
+CMD ["/bin/bash"]
