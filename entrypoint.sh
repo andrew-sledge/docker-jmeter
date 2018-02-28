@@ -43,3 +43,5 @@ echo "Testing host ${JMETER_HTTP_HOST}"
 
 jmeter -n -t /home/jmeteruser/$JMETER_SCRIPT
 echo "$(date)" >> $REPORT_FILE
+
+exit 0
