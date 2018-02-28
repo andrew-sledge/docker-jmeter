@@ -8,12 +8,15 @@ echo "Pulling $JMETER_SCRIPT_S3_LOCATION"
 JMETER_SCRIPT=$(basename "$JMETER_SCRIPT_S3_LOCATION")
 
 # Pull the CSV data
-echo "Pulling $JMETER_CSV_LOAD_SCRIPT_S3_LOCATION"
-/usr/local/bin/aws s3 cp $JMETER_CSV_LOAD_SCRIPT_S3_LOCATION /home/jmeteruser/
-JMETER_DATA=$(basename "$JMETER_CSV_LOAD_SCRIPT_S3_LOCATION")
+echo "Pulling $JMETER_CSV_DATA_SCRIPT_S3_LOCATION"
+/usr/local/bin/aws s3 cp $JMETER_CSV_DATA_SCRIPT_S3_LOCATION /home/jmeteruser/
+JMETER_CSV_DATA=$(basename "$JMETER_CSV_DATA_SCRIPT_S3_LOCATION")
 
-# Update the CSV data for the host
-/usr/bin/sed -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_DATA
+# Update the script data for the host
+/usr/bin/sed -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_SCRIPT
+
+# Update the script data for the CSV file
+/usr/bin/sed -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_SCRIPT
 
 freeMem=`awk '/MemFree/ { print int($2/1024) }' /proc/meminfo`
 s=$(($freeMem/10*8))

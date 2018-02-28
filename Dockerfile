@@ -35,12 +35,10 @@ VOLUME /home/jmeteruser
 WORKDIR /home/jmeteruser
 
 ENV JMETER_SCRIPT_S3_LOCATION s3://bucket/loadrunner.jmx
-ENV JMETER_CSV_LOAD_SCRIPT_S3_LOCATION s3://bucket/data.csv
+ENV JMETER_CSV_DATA_SCRIPT_S3_LOCATION s3://bucket/data.csv
 ENV JMETER_HTTP_HOST www.myhost.com
 ENV PATH $PATH:/jmeter/apache-jmeter-${JMETER_VERSION}/bin:/home/jmeteruser
 ENV JMETER_ENTRYPOINT_PATH /jmeter/apache-jmeter-${JMETER_VERSION}/bin/entrypoint.sh
 
 ENTRYPOINT /bin/bash
-# ENTRYPOINT $JMETER_PATH -n -t $JMETER_FULL_SCRIPT_PATH
-
 # CMD ["/bin/bash"]
