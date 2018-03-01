@@ -46,6 +46,9 @@ echo "Testing host ${JMETER_HTTP_HOST}"
 
 jmeter -n -t /home/jmeteruser/$JMETER_SCRIPT
 
+# Add one minute, just in case
+sleep 60s
+
 END_TIME=`date +%Y-%m-%dT%H:%M:%S-04:00`
 echo "$END_TIME" >> $REPORT_FILE
 
