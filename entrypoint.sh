@@ -21,7 +21,7 @@ SED=`which sed`
 $SED -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_SCRIPT
 
 # Update the script data for the CSV file
-$SED -i "s/%%HTTP_HOST%%/$JMETER_HTTP_HOST/g" /home/jmeteruser/$JMETER_SCRIPT
+$SED -i "s/%%CSV_FILE%%/$JMETER_CSV_DATA/g" /home/jmeteruser/$JMETER_CSV_DATA
 
 freeMem=`awk '/MemFree/ { print int($2/1024) }' /proc/meminfo`
 s=$(($freeMem/10*8))
